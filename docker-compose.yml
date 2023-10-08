@@ -4,18 +4,23 @@ services:
   minecraft:
     image: itzg/minecraft-server
     environment:
+      TYPE: "PAPER"
       EULA: "true"
       ENABLE_ROLLING_LOGS: "true"
       LOG_TIMESTAMP: "true"
       MAX_PLAYERS: 10
       DIFFICULTY: "easy"
+      VIEW_DISTANCE: 10
       USE_AIKAR_FLAGS: "true"
       MEMORY: "4G"
       TZ: "Europe/Amsterdam"
+      SPIGET_RESOURCES: 81534
+      MOTD: "A Paper Minecraft Server hosted by Martin"
+      OPS: "vessalix"
     ports:
       - "25565:25565"
     volumes:
-      - "~/minecraft_data:/data"
+      - "./minecraft_data:/data"
     stdin_open: true
     tty: true
     restart: unless-stopped
